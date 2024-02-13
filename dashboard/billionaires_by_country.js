@@ -6,7 +6,7 @@ function billionairesByCountry(selectedCountry){
     byCountryDiv.innerHTML = '';
 
     // Filter data by selected country
-    const billionairesInCountry = billionairesData.filter(obj => obj["Country | Territory"] === selectedCountry);
+    const billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
   
     billionairesInCountry.forEach(billionaire => {
         const listItem = document.createElement('a');

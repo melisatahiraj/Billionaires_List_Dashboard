@@ -2,7 +2,7 @@
 let billionairesData = [];
 document.addEventListener("DOMContentLoaded", function () {
     // Use D3 to load data
-    d3.json('csvjson.json').then(function(data) {
+    d3.json('Billionaires.json').then(function(data) {
         console.log(data);
 
         // Global data
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const uniqueCountries = [];
 
         data.forEach(obj => {
-            const country = obj["Country | Territory"];
+            const country = obj["Country"];
             if (!uniqueCountries.includes(country)) {
                 uniqueCountries.push(country);
             }
