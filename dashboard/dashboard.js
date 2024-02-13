@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Use D3 to load data
     d3.json('csvjson.json').then(function(data) {
         console.log(data);
+
+        // Global data
         billionairesData = data;
     
-        // Extract unique countries without using Set
+        // Extract unique countries
         const uniqueCountries = [];
 
         data.forEach(obj => {
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log(uniqueCountries);
 
-        // Get a reference to the select element
+        // Get a reference to the select element (dropdown)
         const selectElement = document.getElementById('countrySelect');
 
         // Populate the select element with unique countries
