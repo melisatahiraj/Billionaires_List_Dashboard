@@ -39,11 +39,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function clearAllTiles() {
+    const graph1Div = document.getElementById('billionaires-by-country-chart');
+    const graph2Div = document.getElementById('graph2');
+    const graph3Div = document.getElementById('graph3');
+    const graph4Div = document.getElementById('graph4');
+    const graph5Div = document.getElementById('graph5');
+    const graph6Div = document.getElementById('graph6');
+    const graph7Div = document.getElementById('graph7');
+    const graph8Div = document.getElementById('graph8');
+    const graph9Div = document.getElementById('graph9');
+
+    graph1Div.innerHTML = "";
+    graph2Div.innerHTML = "";
+    graph3Div.innerHTML = "";
+    graph4Div.innerHTML = "";
+    graph5Div.innerHTML = "";
+    graph6Div.innerHTML = "";
+    graph7Div.innerHTML = "";
+    graph8Div.innerHTML = "";
+    graph9Div.innerHTML = "";
+
+}
+
 
 // Function to handle data whenever we change the country
 function handleSelectChange(selectElement) {
     const selectedCountry = selectElement.value;
     console.log(`Selected country: ${selectedCountry}`);
+    clearAllTiles();
     billionairesByCountry(selectedCountry)
     graph1(selectedCountry)
     graph2(selectedCountry)
