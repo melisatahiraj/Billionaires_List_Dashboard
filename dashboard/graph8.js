@@ -1,10 +1,10 @@
-function graph3(selectedCountry){
-    console.log('graph3')
+function graph8(selectedCountry){
+    console.log('graph8')
     console.log(selectedCountry, billionairesData)
 
     // Get a reference for the graph div
-    const graphChartDiv = document.getElementById('graph3');
+    const graphChartDiv = document.getElementById('graph8');
     graphChartDiv.innerHTML = '';
 
    // TODO: Graph code goes here
-}  
+} 

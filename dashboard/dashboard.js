@@ -49,5 +49,10 @@ function handleSelectChange(selectElement) {
     graph2(selectedCountry)
     graph3(selectedCountry)
     graph4(selectedCountry)
+    graph5(selectedCountry)
+    graph6(selectedCountry)
+    graph7(selectedCountry)
+    graph8(selectedCountry)
+    graph9(selectedCountry)
 }
 
