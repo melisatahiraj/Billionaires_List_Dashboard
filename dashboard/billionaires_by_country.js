@@ -59,6 +59,18 @@ function billionairesByCountry(selectedCountry){
 
       return textSize;
     };
+    const predefinedColors = [
+      '#24deff', 
+      '#13dbfe', 
+      '#04d6fb', 
+      '#07c5e6', 
+      '#06b6d4', 
+      '#09abc8', 
+      '#0ba0bb', 
+      '#0d96ae', 
+      '#0f8ca2', 
+      '#108296'
+    ];
 
     const wordCloudData = [{
       type: 'scatter',
@@ -66,6 +78,10 @@ function billionairesByCountry(selectedCountry){
       text: top10Sources.map(word => word[0]),
       textfont: {
         size: top10Sources.map(word => standardizeValue(word[1])),
+        color: predefinedColors
+      },
+      marker: {
+        color: predefinedColors, // Use the predefined colors for each word
       },
       x: positions.map(pos => pos.x),
       y: positions.map(pos => pos.y),
