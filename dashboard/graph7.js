@@ -4,7 +4,7 @@ function graph7(selectedCountry){
 
     // Get a reference for the graph div
     const graphChartDiv = document.getElementById('graph7');
-    // graphChartDiv.innerHTML = '';
+    graphChartDiv.innerHTML = '';
 
    // TODO: Graph code goes here
 } 
