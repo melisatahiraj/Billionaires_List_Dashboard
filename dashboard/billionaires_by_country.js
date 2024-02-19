@@ -77,7 +77,7 @@ function billionairesByCountry(selectedCountry){
       mode: 'text',
       text: top10Sources.map(word => word[0]),
       textfont: {
-        size: top10Sources.map(word => standardizeValue(word[1])),
+        size: [30, 28, 26, 24, 20, 18, 16, 14, 10, 8],
         color: predefinedColors
       },
       marker: {
