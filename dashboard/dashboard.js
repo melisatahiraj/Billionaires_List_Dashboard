@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
             selectElement.appendChild(optionElement);
         });
 
-
         // Set the default selection to United States
         selectElement.value = 'United States';
 
