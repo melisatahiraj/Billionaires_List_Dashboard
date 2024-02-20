@@ -105,7 +105,7 @@
                 </div>
                 <div class="col mx-1 " style="background-color: white;">
                     <!-- Plotly Chart here -->
-                    <p>Graph8</p>
+                    <canvas id="polarChart"></canvas>
                     <div id="graph8" style="max-height: 300px; min-height: 300px; overflow-x: auto;"></div>
                 </div>
                 <div class="col mr-1 " style="background-color: white;">
@@ -135,141 +135,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html><!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billionaires Dashboard</title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Include libraries -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-            /* Custom CSS to change the container max-width */
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 1500px; /* Change this value to your desired maximum width */
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Dashboard content -->
-    <div id="chart-container">
-        
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <!-- Sample Bootstrap grid layout -->
-        <div class="container mt-1 pb-1 " style="background-color: #E5F2F6;">
-            <div class="row d-flex justify-content-center h2 pt-2 pb-2" style="background-color: #47859E; color:white">
-                Billionaires Dashboard
-            </div>
-
-            <!-- Dropdown select input -->
-            <div class="form-group">
-                <label for="countrySelect">Select Country:</label>
-                <select class="form-control" id="countrySelect" onchange="handleSelectChange(this)">
-                </select>
-            </div>
-            <!-- Visualization container row 1 -->
-            <div class="row mb-1">
-                <div class="col ml-1 " style="background-color: white;">
-                    <!-- Billionaires by Country Chart -->
-                    <div id="billionaires-by-country-chart" style="max-height: 300px; min-height: 300px; overflow-x: auto;"></div>
-                </div>
-                <div class="col ml-1 " style="background-color: white;">
-                    <p>Graph1</p>
-                    <!-- Plotly Chart here -->
-                    <div id="graph1"></div>
-                    <div id="pie"></div>
-                </div>
-                <div class="col ml-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph2</p>
-                    <div id="graph2"></div>
-                    <div id="bubble"></div>
-                </div>
-                <div class="col mx-1 ">
-                    <!-- Plotly Chart here -->
-                    <div class="row mb-1" style="background-color: #D3A8CF;">
-                        <div id="graph10" style="max-height: 75px; min-height: 75px; overflow-x: auto; width: 100%;"></div>
-                    </div>
-                    <div class="row mb-1" style="background-color: #F9B290;">
-                        <div id="graph11" style="max-height: 75px; min-height: 75px; overflow-x: auto; width: 100%;"></div>
-                    </div>
-                    <div class="row mb-1" style="background-color: #D3A8CF;">
-                        <div id="graph12" style="max-height: 75px; min-height: 75px; overflow-x: auto; width: 100%;"></div>
-                    </div>
-                    <div class="row" style="background-color: #F9B290;">
-                        <div id="graph13" style="max-height: 75px; min-height: 75px; overflow-x: auto; width: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Visualization container row 3 -->
-            <div class="row mb-1">
-                <div class="col ml-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph3</p>
-                    <div id="graph3"></div>
-                </div>
-                <div class="col ml-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph4</p>
-                    <div id="graph4" style="max-height: 300px; min-height: 300px; overflow-x: auto;"></div>
-                </div>
-                <div class="col mx-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph5</p>
-                    <div id="graph5" style="max-height: 300px; min-height: 300px; overflow-x: auto;">
-                    </div>
-                </div>
-                <div class="col mr-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph6</p>
-                    <div id="graph6"></div>
-                </div>
-            </div>
-            <!-- Visualization container row 3 -->
-            <div class="row">
-                <div class="col ml-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph7</p>
-                    <div id="graph7"></div>
-                </div>
-                <div class="col mx-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <p>Graph8</p>
-                    <div id="graph8" style="max-height: 300px; min-height: 300px; overflow-x: auto;"></div>
-                </div>
-                <div class="col mr-1 " style="background-color: white;">
-                    <!-- Plotly Chart here -->
-                    <div id="graph9" style="max-height: 300px; min-height: 300px; overflow-x: auto;"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <script src="graph1.js"></script>
-    <script src="graph2.js"></script>
-    <script src="graph3.js"></script>
-    <script src="graph4.js"></script>
-    <script src="graph5.js"></script>
-    <script src="graph6.js"></script>
-    <script src="graph7.js"></script>
-    <script src="graph8.js"></script>
-    <script src="graph9.js"></script>
-    <script src="graph10.js"></script>
-    <script src="graph11.js"></script>
-    <script src="graph12.js"></script>
-    <script src="graph13.js"></script>
-    <script src="billionaires_by_country.js"></script>
-    <script src="dashboard.js"></script>
-    <!-- Bootstrap JS for styles -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
