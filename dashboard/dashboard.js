@@ -68,7 +68,6 @@ function clearAllTiles() {
     graph3Div.innerHTML = "";
     graph4Div.innerHTML = "";
     graph5Div.innerHTML = "";
-    graph6Div.innerHTML = "";
     graph7Div.innerHTML = "";
     graph8Div.innerHTML = "";
     graph9Div.innerHTML = "";
@@ -91,7 +90,7 @@ function handleSelectChange(selectElement) {
     graph3(selectedCountry)
     graph4(selectedCountry)
     graph5(selectedCountry)
-    graph6(selectedCountry)
+    // graph6(selectedCountry)
     graph7(selectedCountry)
     graph8(selectedCountry)
     graph9(selectedCountry)
