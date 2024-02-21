@@ -44,9 +44,12 @@ function graph9(selectedCountry) {
         },
         bargap: 0.2,
     };
+    const config = {
+        displayModeBar: false,
+    };
 
 
-    Plotly.newPlot(graphChartDiv, [industryChart], industryLayout);
+    Plotly.newPlot(graphChartDiv, [industryChart], industryLayout, config);
 
     // Function to count occurrences
     function countOccurrences(arr) {
