@@ -27,10 +27,13 @@ function graph4(selectedCountry){
     }];
 
     const layout = {
-        margin: {t: 30, l: 0, r: 0, b: 0},
+        margin: {t: 30, l: 20, r: 0, b: 0},
         title: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
-        width: 500
+        width: 300
     }
+    const config = {
+        displayModeBar: false,
+      };
 
-    Plotly.newPlot('graph4', data, layout);
+    Plotly.newPlot('graph4', data, layout, config);
 }  

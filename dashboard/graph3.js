@@ -46,12 +46,15 @@ function graph3(selectedCountry){
                     l: 0,
                     r: 5
                 }},
-        xaxis: {title: 'Industry', automargin: true},
         yaxis: {title: 'Total Net Worth (In Billions)', automargin: true},
         width: 500
     }
 
-    Plotly.newPlot('graph3', data, layout);
+    const config = {
+        displayModeBar: false,
+      };
+
+    Plotly.newPlot('graph3', data, layout, config);
 }    
 
    

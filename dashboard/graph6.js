@@ -53,7 +53,7 @@ d3.json('Billionaires.json')
         }
       },
       // Adjust the width and height of the plot
-      width: 550,
+      width: 850,
       height: 550,
       responsive: true
     };

@@ -61,6 +61,7 @@ function clearAllTiles() {
     const graph11Div = document.getElementById('graph11');
     const graph12Div = document.getElementById('graph12');
     const graph13Div = document.getElementById('graph13');
+    const graph14Div = document.getElementById('graph14');
 
     graph0Div.innerHTML = "";
     graph1Div.innerHTML = "";
@@ -75,6 +76,7 @@ function clearAllTiles() {
     graph11Div.innerHTML = "";
     graph12Div.innerHTML = "";
     graph13Div.innerHTML = "";
+    graph14Div.innerHTML = "";
 
 }
 
@@ -98,5 +100,6 @@ function handleSelectChange(selectElement) {
     graph11(selectedCountry)
     graph12(selectedCountry)
     graph13(selectedCountry)
+    graph14(selectedCountry)
 }
 

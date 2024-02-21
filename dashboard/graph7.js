@@ -28,9 +28,9 @@ function graph7(selectedCountry) {
         .entries(filteredData);
   
     // Bubble chart setup
-    const margin = { top: 60, right: 30, bottom: 40, left: 90 };
-    const width = 600 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    const margin = { top: 60, right: 30, bottom: 90, left: 90 };
+    const width = 580 - margin.left - margin.right;
+    const height = 300 - margin.top - margin.bottom;
   
     const svg = d3.select("#graph7")
         .append("svg")
@@ -86,7 +86,7 @@ function graph7(selectedCountry) {
         .selectAll("text")
         .attr("transform", "rotate(-45)")
         .style("text-anchor", "end")
-        .style("font-size", "12px");
+        .style("font-size", "9px");
   
     svg.append("g")
         .call(d3.axisLeft(y));
@@ -107,13 +107,13 @@ function graph7(selectedCountry) {
         .style("text-anchor", "middle")
         .text("Average Age");
   
-    svg.append("text")
-        .attr("y", height + margin.top)
-        .attr("x", width / 2)
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .style("font-size", "16px")
-        .text("Billionaires Average Age per Industry"); // Title
+    // svg.append("text")
+    //     .attr("y", height + margin.top)
+    //     .attr("x", width / 2)
+    //     .attr("dy", "1em")
+    //     .style("text-anchor", "middle")
+    //     .style("font-size", "16px")
+    //     .text("Billionaires Average Age per Industry"); // Title
   
     // Tooltip
     const tooltip = d3.select("body").append("div")

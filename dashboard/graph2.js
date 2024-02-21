@@ -102,8 +102,12 @@ function bubbleChart(dataValues) {
         }
     };
 
+    const config = {
+        displayModeBar: false,
+      };
+
     // Plot the bubble chart
-    Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout, config);
 }
 
 
