@@ -29,7 +29,9 @@ function graph1(selectedCountry) {
     let filteredData = [];
     // Check for All
     if (selectedCountry === 'All') {
-        filteredData = billionairesData;
+        filteredData = billionairesData.filter(
+          (sample) => sample["Age"] !== "N/A"
+        );
     } else {
         filteredData = billionairesData.filter(
           (sample) => sample["Country"] === selectedCountry && sample["Age"] !== "N/A"
@@ -147,8 +149,8 @@ function graph1(selectedCountry) {
             font: { size: 8 },
             showarrow: false,
             text:
-              "<b>Age Distribution</b> <br> <b><i> Total Billionaires: " +
-              totalBillionaires +
+              "<b>Age Distribution</b> <br> <b><i> Total Billionaires: <br>" +
+              filteredData.length +
               "</i></b>",
             x: 0.5,
             y: 0.5,

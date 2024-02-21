@@ -4,51 +4,53 @@ function graph9(selectedCountry) {
 
     // Get a reference for the graph div
     const graphChartDiv = document.getElementById('graph9');
-    // graphChartDiv.innerHTML = '';
 
-    // Filter data by selected country
-
-     // Filtering data based on the selected country
-     let billionairesInCountry = [];
-     // Check for All
-     if (selectedCountry === 'All') {
+    // Filtering data based on the selected country
+    let billionairesInCountry = [];
+    // Check for All
+    if (selectedCountry === 'All') {
         billionairesInCountry = billionairesData;
-     } else {
+    } else {
         billionairesInCountry = billionairesData.filter(entry => entry.Country === selectedCountry);
-     }
+    }
 
     // Prepare data for the bar chart
-    const uniqueIndustries = [...new Set(billionairesInCountry.map(item => item.Industry))];
-    const industryCounts = countOccurrences(billionairesInCountry.map(item => item.Industry));
+    const uniqueCountries = [...new Set(billionairesInCountry.map(item => item.Country))];
+    const countryBillionaireCounts = countOccurrences(billionairesInCountry.map(item => item.Country));
 
-    // Sort industries by industry dominance (counts) in descending order
-    const sortedIndustries = uniqueIndustries.sort((a, b) => industryCounts[b] - industryCounts[a]);
+    // Sort countries by billionaire counts in descending order
+    const sortedCountries = uniqueCountries.sort((a, b) => countryBillionaireCounts[b] - countryBillionaireCounts[a]);
 
-    // Select the top 10 industries
-    const top10Industries = sortedIndustries.slice(0, 10);
+    // Select the top 10 countries
+    const top10Countries = sortedCountries.slice(0, 10);
 
-    // Extract counts for the top 10 industries
-    const top10IndustryCounts = top10Industries.map(industry => industryCounts[industry] || 0);
+    // Extract counts for the top 10 countries
+    const top10CountryBillionaireCounts = top10Countries.map(country => countryBillionaireCounts[country] || 0);
 
-    // Industry Dominance Horizontal Bar Chart
-    const industryChart = {
-        y: top10IndustryCounts,
-        x: top10Industries,
+    // Color
+    const pickColor = '440154';
+
+    // Country Billionaire Counts Bar Chart
+    const countryChart = {
+        x: top10CountryBillionaireCounts,
+        y: top10Countries,
         type: 'bar',
-        // orientation: 'h', // Set orientation to horizontal
-        marker: { color: 'steelblue' },
+        orientation: 'h', // Set orientation to horizontal
+        marker: {
+            color: pickColor,
+        },
     };
 
-    const industryLayout = {
+    const countryLayout = {
         width: 510,
         height: 330,
-        title: 'Top 10 Industries',
-        yaxis: { title: 'Number of Billionaires' },
-        xaxis: {
-            // autorange: 'reversed', 
+        title: 'Top 10 Countries by Billionaire Count',
+        xaxis: { title: 'Number of Billionaires' },
+        yaxis: {
+            autorange: 'reversed',
             automargin: true,
-            tickfont: { size: 12 }, 
-            pad: 4, 
+            tickfont: { size: 12 },
+            pad: 4,
         },
         bargap: 0.2,
     };
@@ -56,8 +58,7 @@ function graph9(selectedCountry) {
         displayModeBar: false,
     };
 
-
-    Plotly.newPlot(graphChartDiv, [industryChart], industryLayout, config);
+    Plotly.newPlot(graphChartDiv, [countryChart], countryLayout, config);
 
     // Function to count occurrences
     function countOccurrences(arr) {
