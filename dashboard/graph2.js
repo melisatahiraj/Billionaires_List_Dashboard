@@ -80,7 +80,7 @@ function bubbleChart(dataValues, selectedCountry) {
 
     // Define layout for the bubble chart
     let bubbleLayout = {
-        title: '<b>Age & Net Worth</b>',
+        title: 'Age & Net Worth',
         hovermode: "closest",
         margin: {
             l: 60,

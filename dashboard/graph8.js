@@ -88,7 +88,8 @@ function createCard(title, count) {
     card.classList.add('card');
     card.style.fontSize = '12px'; // Adjust the font size here
 
-    const cardTitle = document.createElement('h3');
+    const cardTitle = document.createElement('h5');
+    cardTitle.style.fontWeight = '300'; 
     cardTitle.textContent = title;
 
     const countText = document.createElement('p');

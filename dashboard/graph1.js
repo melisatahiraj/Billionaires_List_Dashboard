@@ -142,8 +142,8 @@ function graph1(selectedCountry) {
       // Define layout for the pie chart
       let pieLayout = {
         mmargin: { l: 0, r: 0, b: 0, t: 0, pad:0 },
-        height: 400,
-        width: 400,
+        height: 420,
+        width: 420,
         annotations: [
           {
             font: { size: 8 },
