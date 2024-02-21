@@ -1,100 +1,171 @@
-function graph1(selectedCountry){
-    console.log('graph1');
+function graph1(selectedCountry) {
+    console.log("graph1");
     console.log(selectedCountry, billionairesData);
-
-     // Get a reference for the graph div
-     //const graphChartDiv = document.getElementById('graph1');
-     //graphChartDiv.innerHTML = '';
-
+  
+    // Get a reference for the graph div
+    // const graphChartDiv = document.getElementById('graph1');
+    // graphChartDiv.innerHTML = '';
+  
     // TODO: Graph code goes here
-
-    let totalBillionairesCountry = {};
-
+  
+    // Initialize a variable to count the total number of billionaires
+    let totalBillionairesCount = 0;
+  
+    // Loop through each billionaire in the data
     billionairesData.forEach((billionaire) => {
-        let country = billionaire['Country'];
-        totalBillionairesCountry[country] = (totalBillionairesCountry[country] || 0) + 1;
+      let country = billionaire["Country"];
+      let age = billionaire["Age"];
+  
+    // Check if the billionaire is from the selected country and has a valid age
+      if (country === selectedCountry && age !== "N/A") {
+        totalBillionairesCount++;
+      }
     });
-
-    let totalBillionaires = totalBillionairesCountry[selectedCountry];
-
-    let filteredData = billionairesData.filter(sample => sample['Country'] === selectedCountry);
+  
+    // Store the total count of billionaires for the selected country
+    let totalBillionaires = totalBillionairesCount;
+  
+    // Filter the data to include only billionaires from the selected country with valid age
+    let filteredData = billionairesData.filter(
+      (sample) => sample["Country"] === selectedCountry && sample["Age"] !== "N/A"
+    );
     console.log(filteredData);
 
 
-
-
+    // Define a function to create a pie chart based on age distribution
     function pieChart(dataValues) {
+      let ageGroups = {
+        "10-19": 0,
+        "20-29": 0,
+        "30-39": 0,
+        "40-49": 0,
+        "50-59": 0,
+        "60-69": 0,
+        "70-79": 0,
+        "80-89": 0,
+        "90+": 0,
+      };
+  
+      // Iterate through each billionaire's age and update the corresponding age group count
+      dataValues.forEach(({ Age }) => {
+        let ageNum = parseFloat(Age);
+        if (ageNum >= 90) {
+          ageGroups["90+"]++;
+        } else {
+          let ageGroup = Math.floor(ageNum / 10) * 10;
+          let ageGroupLabel = `${ageGroup}-${ageGroup + 9}`;
+          ageGroups[ageGroupLabel]++;
+        }
+      });
+      console.log(Object.values(ageGroups));
 
-    
-        let ageGroups = {
-            '20-29': 0,
-            '30-39': 0,
-            '40-49': 0,
-            '50-59': 0,
-            '60-69': 0,
-            '70-79': 0,
-            '80-89': 0,
-            '90+': 0,
-        };
+      // Define the order of age groups for displaying in the pie chart
+      let ageGroupOrder = [
+        "10-19",   
+        "20-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60-69",
+        "70-79",
+        "80-89",
+        "90+",
+      ];
+  
+      // Store values of the variables for the pie chart
+      let labels = [];
+      let values = [];
+      let colors = [];
+  
+      let fixedColors = {
+        "10-19": "#628f70",
+        "20-29": "#003333",
+        "30-39": "#0f8f84",
+        "40-49": "#529191",
+        "50-59": "#4fb6b6",
+        "60-69": "#01d9d9",
+        "70-79": "#43b995",
+        "80-89": "#00ae79",
+        "90+": "#00874c",
+      };
+  
+      // Iterate through each age group and add data to respective arrays
+      ageGroupOrder.forEach((label) => {
+        if (ageGroups[label] > 0) {
+          labels.push(label);
+          values.push(ageGroups[label]);
+          colors.push(fixedColors[label]);
+        }
+      });
+
+      if (ageGroups["90+"] > 0) {
+        labels.push("90+");
+        values.push(ageGroups["90+"]);
+        colors.push(fixedColors["90+"]);
+      }
+      console.log("DATA >>>>", labels);
 
 
-        dataValues.forEach(({Age}) => {
-            let ageGroup = Math.floor(Age / 10) * 10;
-            let ageGroupLabel = `${ageGroup}-${ageGroup + 9}`;
-            ageGroups[ageGroupLabel]++;
-        });
-
-
-        let labels = Object.keys(ageGroups);
-        let values = Object.values(ageGroups);
-
-
-        let pieData = [{
-            values: values,
-            labels: labels,
-            type: 'pie',
-            name: 'Age Distribution',
-            marker: {
-                colors: ['#c05956', '#d46547', '#e9861a', '#e1b525', '#76745c', '#d8699e', '#c2ccd8', '#c04b65', '#f6dce9'],
-                line: {
-                    color: 'black',
-                    width: 1
-                }
+      // Define data for the pie chart
+      let pieData = [
+        {
+          values: values,
+          labels: labels,
+          type: "pie",
+          name: "Age Distribution",
+          marker: {
+            colors: colors,
+            line: {
+              color: "black",
+              width: 1,
             },
-            hoverinfo: 'label+value',
-            textinfo: 'percent',
-            textposition: 'inside',
-            hole: 0.5,
-            //pull: pullValues,
-        }];
+          },
+          hoverinfo: "label+value",
+          textinfo: "percent",
+          textposition: "inside",
+          hole: 0.5,
+          sort: false,
+        },
+      ];
+  
 
-
-        let pieLayout = {
-            //title: '<b>Age Distribution</b>',
-            margin: {
-                l: 50,
-                t: 30,
-                r: 30,
-                b: 30,
-            },
-            height: 500,
-            width: 500,
-            annotations: [
-                {
-                    font: {size: 14.5},
-                    showarrow: false,
-                    text: '<b>Age Distribution</b> <br> <b><i> Total Billionaires: ' + totalBillionaires + '</i></b>',
-                    x: 0.5,
-                    y: 0.5
-                }
-            ],
-            showlegend: true,
-        };
-
-        Plotly.newPlot('pie', pieData, pieLayout);
+      // Define layout for the pie chart
+      let pieLayout = {
+        margin: {
+          l: 50,
+          t: 20,
+          r: 30,
+          b: 70,
+        },
+        height: 650,
+        width: 650,
+        annotations: [
+          {
+            font: { size: 14 },
+            showarrow: false,
+            text:
+              "<b>Age Distribution</b> <br> <b><i> Total Billionaires: " +
+              totalBillionaires +
+              "</i></b>",
+            x: 0.5,
+            y: 0.5,
+          },
+        ],
+        showlegend: true,
+        legend: {
+          x: 1.5,
+          xanchor: "right",
+          y: 1,
+          yanchor: "top",
+          bordercolor: "#000",
+          borderwidth: 1,
+        },
+      };
+      
+      // Plot the pie chart
+      Plotly.newPlot("pie", pieData, pieLayout);
     }
-
     
+    // Call pie chart
     pieChart(filteredData);
-
-}   
+  }
