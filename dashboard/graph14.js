@@ -4,7 +4,14 @@ function graph14(selectedCountry) {
     const byCountryDiv = document.getElementById('graph14');
     byCountryDiv.innerHTML = '';
     // Filter data by selected country
-    const billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+      // Check for All
+    if (selectedCountry === 'All') {
+        billionairesInCountry = billionairesData;
+    } else {
+        billionairesInCountry = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    }
+
+
     billionairesInCountry.forEach(billionaire => {
         const listItem = document.createElement('a');
         listItem.href = '#';

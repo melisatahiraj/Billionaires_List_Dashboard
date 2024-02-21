@@ -26,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Get a reference to the select element (dropdown)
         const selectElement = document.getElementById('countrySelect');
 
+        // add all
+        const optionElement = document.createElement('option');
+        optionElement.textContent = 'All';
+        selectElement.appendChild(optionElement);
+
         // Populate the select element with unique countries
         uniqueCountries.forEach(country => {
             const optionElement = document.createElement('option');
@@ -34,10 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Set the default selection to United States
-        selectElement.value = 'United States';
+        selectElement.value = 'All';
 
         // Trigger the change event to update the graphs
-        handleSelectChange({ value: 'United States' });
+        // handleSelectChange({ value: 'United States' });
+        handleSelectChange({ value: 'All' });
 
     // handleSelectChange({value:uniqueCountries[0]});
 

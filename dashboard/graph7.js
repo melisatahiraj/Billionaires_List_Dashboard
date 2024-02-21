@@ -6,10 +6,12 @@ function graph7(selectedCountry) {
     const graphChartDiv = d3.select("#graph7");
     graphChartDiv.html(''); // Clear previous content
   
-    // Filter data based on selected country
-    let filteredData = billionairesData;
-    if (selectedCountry) {
-        filteredData = billionairesData.filter(d => d.Country === selectedCountry);
+    let filteredData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        filteredData = billionairesData;
+    } else {
+        filteredData = billionairesData.filter(obj => obj["Country"] == selectedCountry);
     }
   
     // Convert 'Age' and 'Industry Size' properties to numeric

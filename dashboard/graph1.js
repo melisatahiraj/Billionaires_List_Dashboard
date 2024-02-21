@@ -26,9 +26,17 @@ function graph1(selectedCountry) {
     let totalBillionaires = totalBillionairesCount;
   
     // Filter the data to include only billionaires from the selected country with valid age
-    let filteredData = billionairesData.filter(
-      (sample) => sample["Country"] === selectedCountry && sample["Age"] !== "N/A"
-    );
+    let filteredData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        filteredData = billionairesData;
+    } else {
+        filteredData = billionairesData.filter(
+          (sample) => sample["Country"] === selectedCountry && sample["Age"] !== "N/A"
+        );
+    }
+
+
     console.log(filteredData);
 
 

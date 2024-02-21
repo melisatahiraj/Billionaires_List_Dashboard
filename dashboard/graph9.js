@@ -7,7 +7,15 @@ function graph9(selectedCountry) {
     // graphChartDiv.innerHTML = '';
 
     // Filter data by selected country
-    const billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+
+     // Filtering data based on the selected country
+     let billionairesInCountry = [];
+     // Check for All
+     if (selectedCountry === 'All') {
+        billionairesInCountry = billionairesData;
+     } else {
+        billionairesInCountry = billionairesData.filter(entry => entry.Country === selectedCountry);
+     }
 
     // Prepare data for the bar chart
     const uniqueIndustries = [...new Set(billionairesInCountry.map(item => item.Industry))];

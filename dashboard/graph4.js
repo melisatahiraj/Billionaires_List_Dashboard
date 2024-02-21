@@ -5,8 +5,13 @@ function graph4(selectedCountry){
     console.log('graph4')
     console.log(selectedCountry, billionairesData)
 
-    // filter data by selected country
-    const filteredData = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+    let filteredData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        filteredData = billionairesData;
+    } else {
+        filteredData = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    }
     
     //Prepare data for the plot
     const labelData = filteredData.map(obj => obj['Source']).slice(0,5)

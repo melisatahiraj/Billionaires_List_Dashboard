@@ -7,7 +7,13 @@ function graph8(selectedCountry) {
     graphChartDiv.innerHTML = ''; // Clear previous content
 
     // Filtering data based on the selected country
-    const countryBillionairesData = billionairesData.filter(entry => entry.Country === selectedCountry);
+    let countryBillionairesData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        countryBillionairesData = billionairesData;
+    } else {
+        countryBillionairesData = billionairesData.filter(entry => entry.Country === selectedCountry);
+    }
 
     // Filtering names containing "family"
     const familyNames = countryBillionairesData.filter(entry => entry.Name.includes("family"));
