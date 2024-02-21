@@ -27,9 +27,14 @@ function graph4(selectedCountry){
     }];
 
     const layout = {
-        margin: {t: 30, l: 20, r: 0, b: 0},
-        title: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
-        width: 300
+        margin: {t: 70, l: 80, r: 20, b: 20},
+        // title: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
+        width: 450,
+        title: {
+            text: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
+            x: 0.5,            // Set x to 0.5 to center the title
+            xanchor: 'center', // Set xanchor to 'center' to center the title
+        },
     }
     const config = {
         displayModeBar: false,
