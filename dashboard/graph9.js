@@ -16,24 +16,39 @@ function graph9(selectedCountry) {
 
     // Prepare data for the bar chart
     const uniqueCountries = [...new Set(billionairesInCountry.map(item => item.Country))];
-    const countryBillionaireCounts = countOccurrences(billionairesInCountry.map(item => item.Country));
+    const countryNetWorths = {};
 
-    // Sort countries by billionaire counts in descending order
-    const sortedCountries = uniqueCountries.sort((a, b) => countryBillionaireCounts[b] - countryBillionaireCounts[a]);
+    // Aggregate net worths for each country
+    billionairesInCountry.forEach(entry => {
+        const country = entry.Country;
+        const netWorth = entry['Net Worth(In Billions)'];
+        
+        if (!countryNetWorths[country]) {
+            countryNetWorths[country] = 0;
+        }
 
-    // Select the top 10 countries
-    const top10Countries = sortedCountries.slice(0, 10);
+        countryNetWorths[country] += netWorth;
+    });
 
-    // Extract counts for the top 10 countries
-    const top10CountryBillionaireCounts = top10Countries.map(country => countryBillionaireCounts[country] || 0);
+    // Convert the object to an array of key-value pairs
+    const countryArray = Object.entries(countryNetWorths);
+
+    // Sort the array based on net worth in descending order
+    countryArray.sort((a, b) => b[1] - a[1]);
+
+    // Select the top 5 countries
+    const top5Countries = countryArray.slice(0, 5);
+
+    // Extract net worths for the top 5 countries
+    const top5CountryNetWorths = top5Countries.map(country => country[1]);
 
     // Color
     const pickColor = '440154';
 
-    // Country Billionaire Counts Bar Chart
+    // Country Net Worths Bar Chart
     const countryChart = {
-        x: top10CountryBillionaireCounts,
-        y: top10Countries,
+        x: top5CountryNetWorths,
+        y: top5Countries.map(country => country[0]),
         type: 'bar',
         orientation: 'h', // Set orientation to horizontal
         marker: {
@@ -43,9 +58,9 @@ function graph9(selectedCountry) {
 
     const countryLayout = {
         width: 510,
-        height: 330,
-        title: 'Top 10 Countries by Billionaire Count',
-        xaxis: { title: 'Number of Billionaires' },
+        height: 310,
+        title: 'Top 5 Countries by Total Net Worth',
+        xaxis: { title: 'Total Net Worth (in Billion USD)' },
         yaxis: {
             autorange: 'reversed',
             automargin: true,
@@ -59,12 +74,4 @@ function graph9(selectedCountry) {
     };
 
     Plotly.newPlot(graphChartDiv, [countryChart], countryLayout, config);
-
-    // Function to count occurrences
-    function countOccurrences(arr) {
-        return arr.reduce((acc, value) => {
-            acc[value] = (acc[value] || 0) + 1;
-            return acc;
-        }, {});
-    }
 }
