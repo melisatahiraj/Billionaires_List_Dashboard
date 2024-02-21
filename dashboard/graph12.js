@@ -15,7 +15,7 @@ function graph12(selectedCountry){
     const formattedText = `
         <div style="font-size: 12px;">
             <div class="text-center">Total Net Worth</div>
-            <div class="text-center" style="font-size: 26px;">${totalNetWorth.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 })} B</div>
+            <div class="text-center" style="font-size: 26px;">${totalNetWorth.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2 })} B</div>
         </div>
     `;
 
