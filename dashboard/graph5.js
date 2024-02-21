@@ -3,8 +3,8 @@ function graph5(selectedCountry) {
     console.log(selectedCountry, billionairesData);
 
     // Get a reference for the graph div
-    const graphChartDiv = document.getElementById('graph5');
-    graphChartDiv.innerHTML = '';
+    // const graphChartDiv = document.getElementById('graph5');
+    // graphChartDiv.innerHTML = '';
 
     // Filter data to get the top billionaires
     const topBillionaires = billionairesData.filter(b => b.Country === selectedCountry)
@@ -14,13 +14,7 @@ function graph5(selectedCountry) {
     const names = topBillionaires.map(b => b.Name);
     let netWorths = topBillionaires.map(b => parseFloat(b["Net Worth(In Billions)"]));
 
-    const colorScale = [
-        [0.0, '#3e9c35'], // Light orange
-        [0.25, '#168118'], // Orange
-        [0.5, '#157811'], // Darker orange
-        [0.75, '#036704'], // Purple
-        [1.0, '#084f09'] // Dark purple
-    ];
+    const colorScale = 'Viridis';
 
     const data = [{
         type: 'bar',
@@ -32,7 +26,8 @@ function graph5(selectedCountry) {
             colorscale: colorScale,
             cmin: Math.min(...netWorths),
             cmax: Math.max(...netWorths),
-            
+            reversescale: true // Reverse the color scale
+
         }
     }];
 
@@ -47,8 +42,14 @@ function graph5(selectedCountry) {
             tickfont: {
                 size: 10
             }
-        }
-    };
+        },
+        width: 1000
 
-    Plotly.newPlot('graph5', data, layout);
+    };
+    const config = {
+        displayModeBar: false,
+    };
+  
+
+    Plotly.newPlot('graph5', data, layout, config);
 }
