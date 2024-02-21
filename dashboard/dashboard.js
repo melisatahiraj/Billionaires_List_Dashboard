@@ -26,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Get a reference to the select element (dropdown)
         const selectElement = document.getElementById('countrySelect');
 
+        // add all
+        const optionElement = document.createElement('option');
+        optionElement.textContent = 'All';
+        selectElement.appendChild(optionElement);
+
         // Populate the select element with unique countries
         uniqueCountries.forEach(country => {
             const optionElement = document.createElement('option');
@@ -34,10 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Set the default selection to United States
-        selectElement.value = 'United States';
+        selectElement.value = 'All';
 
         // Trigger the change event to update the graphs
-        handleSelectChange({ value: 'United States' });
+        // handleSelectChange({ value: 'United States' });
+        handleSelectChange({ value: 'All' });
 
     // handleSelectChange({value:uniqueCountries[0]});
 
@@ -61,6 +67,7 @@ function clearAllTiles() {
     const graph11Div = document.getElementById('graph11');
     const graph12Div = document.getElementById('graph12');
     const graph13Div = document.getElementById('graph13');
+    const graph14Div = document.getElementById('graph14');
 
     graph0Div.innerHTML = "";
     graph1Div.innerHTML = "";
@@ -68,7 +75,6 @@ function clearAllTiles() {
     graph3Div.innerHTML = "";
     graph4Div.innerHTML = "";
     graph5Div.innerHTML = "";
-    graph6Div.innerHTML = "";
     graph7Div.innerHTML = "";
     graph8Div.innerHTML = "";
     graph9Div.innerHTML = "";
@@ -76,6 +82,7 @@ function clearAllTiles() {
     graph11Div.innerHTML = "";
     graph12Div.innerHTML = "";
     graph13Div.innerHTML = "";
+    graph14Div.innerHTML = "";
 
 }
 
@@ -91,7 +98,7 @@ function handleSelectChange(selectElement) {
     graph3(selectedCountry)
     graph4(selectedCountry)
     graph5(selectedCountry)
-    graph6(selectedCountry)
+    // graph6(selectedCountry)
     graph7(selectedCountry)
     graph8(selectedCountry)
     graph9(selectedCountry)
@@ -99,5 +106,6 @@ function handleSelectChange(selectElement) {
     graph11(selectedCountry)
     graph12(selectedCountry)
     graph13(selectedCountry)
+    graph14(selectedCountry)
 }
 

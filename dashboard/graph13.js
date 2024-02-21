@@ -6,7 +6,13 @@ function graph13(selectedCountry){
     // byCountryDiv.innerHTML = '';
 
     // Filter data by selected country
-    const billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+    let billionairesInCountry = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        billionairesInCountry = billionairesData;
+    } else {
+        billionairesInCountry = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    }
 
     // Calculate the number of billionaires
     const numberOfBillionaires = billionairesInCountry.length;
