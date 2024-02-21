@@ -26,9 +26,17 @@ function graph1(selectedCountry) {
     let totalBillionaires = totalBillionairesCount;
   
     // Filter the data to include only billionaires from the selected country with valid age
-    let filteredData = billionairesData.filter(
-      (sample) => sample["Country"] === selectedCountry && sample["Age"] !== "N/A"
-    );
+    let filteredData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        filteredData = billionairesData;
+    } else {
+        filteredData = billionairesData.filter(
+          (sample) => sample["Country"] === selectedCountry && sample["Age"] !== "N/A"
+        );
+    }
+
+
     console.log(filteredData);
 
 
@@ -131,17 +139,12 @@ function graph1(selectedCountry) {
 
       // Define layout for the pie chart
       let pieLayout = {
-        margin: {
-          l: 50,
-          t: 20,
-          r: 30,
-          b: 70,
-        },
-        height: 650,
-        width: 650,
+        mmargin: { l: 0, r: 0, b: 0, t: 0, pad:0 },
+        height: 400,
+        width: 400,
         annotations: [
           {
-            font: { size: 14 },
+            font: { size: 8 },
             showarrow: false,
             text:
               "<b>Age Distribution</b> <br> <b><i> Total Billionaires: " +
@@ -161,9 +164,12 @@ function graph1(selectedCountry) {
           borderwidth: 1,
         },
       };
+      const config = {
+        displayModeBar: false,
+      };
       
       // Plot the pie chart
-      Plotly.newPlot("pie", pieData, pieLayout);
+      Plotly.newPlot("pie", pieData, pieLayout, config);
     }
     
     // Call pie chart

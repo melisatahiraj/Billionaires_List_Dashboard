@@ -1,9 +1,14 @@
 function graph3(selectedCountry){
     console.log('graph3')
-    console.log(selectedCountry, billionairesData)
+    console.log(selectedCountry, billionairesData);
 
-    // filter data by selected country
-    const filteredData = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    let filteredData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        filteredData = billionairesData;
+    } else {
+        filteredData = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    }
 
     // calculate total net worth for each industry
     const netWorthByIndustry = filteredData.reduce((acc, obj) => {
@@ -46,12 +51,15 @@ function graph3(selectedCountry){
                     l: 0,
                     r: 5
                 }},
-        xaxis: {title: 'Industry', automargin: true},
         yaxis: {title: 'Total Net Worth (In Billions)', automargin: true},
         width: 500
     }
 
-    Plotly.newPlot('graph3', data, layout);
+    const config = {
+        displayModeBar: false,
+      };
+
+    Plotly.newPlot('graph3', data, layout, config);
 }    
 
    

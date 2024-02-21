@@ -6,10 +6,15 @@ function graph5(selectedCountry) {
     // const graphChartDiv = document.getElementById('graph5');
     // graphChartDiv.innerHTML = '';
 
-    // Filter data to get the top billionaires
-    const topBillionaires = billionairesData.filter(b => b.Country === selectedCountry)
+    let topBillionaires = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        topBillionaires = billionairesData.slice(0, 10);;
+    } else {
+        topBillionaires = billionairesData.filter(b => b.Country === selectedCountry)
         .sort((a, b) => b["Net Worth(In Billions)"] - a["Net Worth(In Billions)"])
         .slice(0, 10); // Get the top 10 billionaires
+    }
 
     const names = topBillionaires.map(b => b.Name);
     let netWorths = topBillionaires.map(b => parseFloat(b["Net Worth(In Billions)"]));

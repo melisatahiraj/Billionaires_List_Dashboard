@@ -5,8 +5,13 @@ function graph11(selectedCountry){
 
     // byCountryDiv.innerHTML = '';
 
-    // Filter data by selected country
-    const billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+    let billionairesInCountry = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        billionairesInCountry = billionairesData;
+    } else {
+        billionairesInCountry = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    }
 
     // Calculate the number of billionaires, total net worth, and average age
     const numberOfBillionaires = billionairesInCountry.length;
@@ -16,7 +21,7 @@ function graph11(selectedCountry){
     const formattedText = `
         <div style="font-size: 12px;">
             <div class="text-center">Number of Billionaires</div>
-            <div class="text-center" style="font-size: 26px;">${numberOfBillionaires}</div>
+            <div class="text-center" style="font-size: 26px;">${numberOfBillionaires.toLocaleString()}</div>
         </div>
     `;
 

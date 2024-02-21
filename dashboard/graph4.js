@@ -5,8 +5,13 @@ function graph4(selectedCountry){
     console.log('graph4')
     console.log(selectedCountry, billionairesData)
 
-    // filter data by selected country
-    const filteredData = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+    let filteredData = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+        filteredData = billionairesData;
+    } else {
+        filteredData = billionairesData.filter(obj => obj["Country"] == selectedCountry);
+    }
     
     //Prepare data for the plot
     const labelData = filteredData.map(obj => obj['Source']).slice(0,5)
@@ -27,10 +32,18 @@ function graph4(selectedCountry){
     }];
 
     const layout = {
-        margin: {t: 30, l: 0, r: 0, b: 0},
-        title: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
-        width: 500
+        margin: {t: 70, l: 80, r: 20, b: 20},
+        // title: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
+        width: 450,
+        title: {
+            text: `Top 5 Sources By Total Net Worth for ${selectedCountry}`,
+            x: 0.5,            // Set x to 0.5 to center the title
+            xanchor: 'center', // Set xanchor to 'center' to center the title
+        },
     }
+    const config = {
+        displayModeBar: false,
+      };
 
-    Plotly.newPlot('graph4', data, layout);
+    Plotly.newPlot('graph4', data, layout, config);
 }  

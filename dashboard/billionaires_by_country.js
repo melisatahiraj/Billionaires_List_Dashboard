@@ -4,7 +4,14 @@ function billionairesByCountry(selectedCountry){
     const wordCloudDiv = document.getElementById('billionaires-by-country-chart');
 
     // Filter data by selected country
-    const billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+    
+    let billionairesInCountry = [];
+    // Check for All
+    if (selectedCountry === 'All') {
+      billionairesInCountry = billionairesData;
+    } else {
+      billionairesInCountry = billionairesData.filter(obj => obj["Country"] === selectedCountry);
+    }
 
 
     // Create an array of words based on the source and count them
