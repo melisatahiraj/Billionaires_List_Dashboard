@@ -2,7 +2,7 @@
 let billionairesData = [];
 document.addEventListener("DOMContentLoaded", function () {
     // Use D3 to load data
-    d3.json('Billionaires.json').then(function(data) {
+    d3.json('dashboard/Billionaires.json').then(function(data) {
         console.log(data);
 
         // Global data
