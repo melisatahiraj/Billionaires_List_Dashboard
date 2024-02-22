@@ -1,4 +1,4 @@
-d3.json('Billionaires.json')
+d3.json('dashboard/Billionaires.json')
   .then(function(billionairesData) {
     // Aggregate net worth by country
     let netWorthByCountry = {};
