@@ -7,14 +7,14 @@
 
 The Billionaire's List is a comprehensive compilation of the world's wealthiest individuals, highlighting their net worth, industries of prominence, and country distribution. This project aims to delve into the intricacies of this list, examining patterns, trends, and disparities within global wealth distribution.
 
-## Contributing Members
+### *Contributing Members*
 
 |Name     |  Slack Handle   | 
 |---------|-----------------|
 |[Dianna Stafford](https://github.com/DeStafford) |     @DeStafford    |
-|[Full Name](https://github.com/MdataHolman) |     @MdataHolman    |
+|[Marlene D Holman](https://github.com/MdataHolman) |     @MdataHolman    |
 |[Melisa Tahiraj](https://github.com/melisatahiraj)|     @melisatahiraj        |
-|[Full Name](https://github.com/mzacevedo) |     @mzacevedo    |
+|[Melissa Acevedo](https://github.com/mzacevedo) |     @mzacevedo    |
 |[Vanessa Delgado](https://github.com/Vfdelgado) |     @Vfdelgado    |
 
 
@@ -29,27 +29,27 @@ The Billionaire's List is a comprehensive compilation of the world's wealthiest 
 While the data utilized in this project was publicly available, ethical considerations remained integral throughout the analysis process. Efforts were made to respect individuals' privacy and confidentiality by ensuring that any personally identifiable information was anonymized and aggregated. Transparency was maintained by clearly documenting methodologies and assumptions, as well as providing open access to analysis code and data. Bias was addressed by utilizing diverse and representative datasets, and by critically evaluating results for potential biases. Additionally, efforts were made to use the data responsibly and ethically, considering the potential impacts of the analysis on individuals and communities. Overall, even with publicly available data, ethical considerations were prioritized to ensure the integrity and trustworthiness of the project.
 
 ### *Instructions on how to use and interact with the project:*
-*
-*
-*
+* Dataset Exploration:
+  * Navigate to the dataset section to explore the available data fields and their distributions
+  * Click on individual data points or use filters to further refine the dataset view
+* Filter by Country:
+  * Use the country filter dropdown menu to select specific countries of interest
+  * The charts and data will dynamically update to reflect the selected country's data
+* Interactive Charts:
+  * Interact with the charts by hovering over data points to view detailed information
+  * Use chart-specific options for further customization or exploration
+* Jupyter Notebook:
+  * Access Jupyter Notebooks through the provided link or section
+  * Perform custom data analysis, manipulation, and visualization using Python and data science libraries
+* SQL Querying:
+  * Access the SQL querying interface to run custom SQL queries on the dataset
+  * Utilize SQL to perform complex filtering, aggregation, and data transformations
+* Entity Relationship Diagram (ERD) Graph
+  * View the ERD graph to understand the dataset's structure and relationships between different entities
 
 
-##### *Talking Points:* 
 
-The project opens up from a page where it shows a dashboard showing different visualizations. You can choose which country you want to see and different visualizations pop up on the tiles. *Needs to be changed based on tile usage*
-* Tile 1 - This visual shows the age distribution of Billionaires for each country, revealing the diversity of ages
-* Tile 2 - This visual shows the arrangement of age and net worth, indicating that wealth accumulation is not solely dependent on age
-* Tile 3
-* Tile 4
-* Tile 5
-* Tile 6
-* Tile 7 - This visual shows the relationship between the average age of billionaires vs the industry they represent
-* Tile 8 - This visual shows billionaires as individuals vs billionares as family wealth
-* Tile 9
-* Tile 10
-* Tile 11
-* Tile 12 
-
-### *Resources / References:* 
+## Resources / References:
 1. https://www.kaggle.com/datasets/shiivvvaam/the-billionaires-list
-2. https://plotly.com/javascript/choropleth-maps/#country-gdp-choropleth-map
+2. https://www.forbes.com/billionaires/
+3. https://plotly.com/javascript/choropleth-maps/#country-gdp-choropleth-map
