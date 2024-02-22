@@ -25,6 +25,8 @@ The Billionaire's List is a comprehensive compilation of the world's wealthiest 
 * To investigate the factors influencing fluctuations in individual billionaire net worth vs those of family wealth.
 * To provide insights into the potential socio-economic implications of billionaire wealth concentration.
 
+![Screenshot 2024-02-21 at 8 30 56 PM](https://github.com/melisatahiraj/project3_Billionaires_List/assets/147450801/40af7186-aa60-48b0-9459-ded3ccfd3c80)
+
 ### *Ethical Consideration:*
 While the data utilized in this project was publicly available, ethical considerations remained integral throughout the analysis process. Efforts were made to respect individuals' privacy and confidentiality by ensuring that any personally identifiable information was anonymized and aggregated. Transparency was maintained by clearly documenting methodologies and assumptions, as well as providing open access to analysis code and data. Bias was addressed by utilizing diverse and representative datasets, and by critically evaluating results for potential biases. Additionally, efforts were made to use the data responsibly and ethically, considering the potential impacts of the analysis on individuals and communities. Overall, even with publicly available data, ethical considerations were prioritized to ensure the integrity and trustworthiness of the project.
 
