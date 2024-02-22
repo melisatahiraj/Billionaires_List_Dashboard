@@ -51,4 +51,5 @@ While the data utilized in this project was publicly available, ethical consider
 
 ## Resources / References:
 1. https://www.kaggle.com/datasets/shiivvvaam/the-billionaires-list
-2. https://plotly.com/javascript/choropleth-maps/#country-gdp-choropleth-map
+2. https://www.forbes.com/billionaires/
+3. https://plotly.com/javascript/choropleth-maps/#country-gdp-choropleth-map
